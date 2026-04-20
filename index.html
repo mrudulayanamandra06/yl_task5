@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SOC Analytics - Enterprise Security Operations Center SPA">
+    <title>SOC Analytics | Command Center</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="brand-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            SOC<span class="accent">Analytics</span>
+        </div>
+        <ul class="nav-links" role="tablist">
+            <li role="presentation"><a href="/" data-route="overview" role="tab" aria-selected="true">Command Center</a></li>
+            <li role="presentation"><a href="/?page=network" data-route="network" role="tab" aria-selected="false">Network Logs</a></li>
+            <li role="presentation"><a href="/?page=threats" data-route="threats" role="tab" aria-selected="false">Threat Intel</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" role="main">
+        
+        <header class="hero-section route-section" id="overview-section" role="tabpanel">
+            <div class="hero-box">
+                <span class="badge status-ok">SYSTEM SECURE</span>
+                <h1>Global Network <span class="accent">Telemetry</span>.</h1>
+                <p>Real-time threat detection, automated log analysis, and enterprise-grade incident response platform.</p>
+                <div class="action-group">
+                    <button id="start-btn" class="btn-primary" aria-label="Run network diagnostic">Run Diagnostic</button>
+                </div>
+                <p id="status-message" class="hidden-msg" aria-live="polite">Scanning firewall endpoints...</p>
+            </div>
+        </header>
+
+        <section id="network-section" class="grid-section route-section" style="display: none;" role="tabpanel">
+            <div class="section-title">
+                <h2>Traffic Analysis</h2>
+                <p class="subtitle">Live monitoring of inbound and outbound packet requests.</p>
+            </div>
+            
+            <div class="interactive-calculator">
+                <h3>Vulnerability Scorer</h3>
+                <p>Calculate theoretical network exposure based on detected anomalies.</p>
+                <div class="calc-form">
+                    <div class="input-group">
+                        <label for="anomalies">Detected Anomalies (Count)</label>
+                        <input type="number" id="anomalies" placeholder="e.g., 12" min="0" aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <label for="severity">Average Severity Multiplier (1-10)</label>
+                        <input type="number" id="severity" placeholder="e.g., 5" min="1" max="10" aria-required="true">
+                    </div>
+                    <button id="calculate-btn" class="btn-secondary">Assess Risk</button>
+                </div>
+                <p id="error-msg" class="error-text" aria-live="assertive"></p>
+                <div id="result-display" class="hidden-result" aria-live="polite">
+                    <h4>Calculated Exposure Score</h4>
+                    <div class="result-value"><span id="risk-result" class="accent-large">0</span> <span class="unit">CVSS Equivalent</span></div>
+                </div>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-card">
+                    <div class="card-icon code-font">PORT_80</div>
+                    <h3>HTTP Traffic</h3>
+                    <p>Monitoring standard web traffic for SQL injection and cross-site scripting attempts.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon code-font">PORT_22</div>
+                    <h3>SSH Connections</h3>
+                    <p>Analyzing encrypted tunnel logs for brute-force access attempts on core servers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="threats-section" class="grid-section route-section" style="display: none;" role="tabpanel">
+            <div class="section-title">
+                <h2>Threat Intelligence</h2>
+                <p class="subtitle">Automated incident reporting and zero-day patch logs.</p>
+            </div>
+            <div class="grid-container">
+                <div class="grid-card">
+                    <h3>Q1 Breach Attempt Audit</h3>
+                    <p>Comprehensive overview of thwarted DDoS and unauthorized access attempts.</p>
+                    <button class="btn-outline" aria-label="Download Audit PDF">Download Log (.csv)</button>
+                </div>
+                <div class="grid-card">
+                    <h3>Firewall Rule Updates</h3>
+                    <p>Latest IP blacklists and geolocation blocking protocols updated from global nodes.</p>
+                    <button class="btn-outline" aria-label="Download Rule Configurations">Export Config (.json)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 SOC Analytics Platform. Secure Architecture.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
